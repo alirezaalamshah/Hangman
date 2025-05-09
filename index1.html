@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی حدس کلمه</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- صفحه مقدمه -->
+    <div id="introScreen" class="intro-screen">
+        <h2>💪طراح بازی علیــرضا عالمشاه💪</h2>
+        <h2>❤️به بازی حدس کلمه خوش آمدید!❤️</h2>
+        <p>🥳در این بازی باید کلمه مورد نظر را با استفاده از عکس های داده شده حدس بزنید🥳😈هر حدس اشتباه تعداد فرصت‌های شما را کم می‌کند😈 برای راهنمایی می‌توانید از سکه‌های خود استفاده کنید،🤪به عنوان راهنمایی میگم بهتون که ممکن عکس ها هیچ ربطی به کلمه نداشته باشه🤪😅ولی بهترین راه حدس زدن کلمه اینه که با صدای بلند اون چیزی رو که میبینید بگید و خوب به صدای خودتون گوش بدید😅🤣راستی شاید لازم باشه عکس ها رو به زبان دیگه نگاه کنید🤣</p>
+        <button id="startGameButton" class="start-btn">شروع بازی</button>
+    </div>
+
+    <!-- صفحه اصلی بازی -->
+    <div id="gameScreen" style="display: none;">
+        <div id="topRight">
+            <div id="coinCount">سکه‌ها: 0</div>
+            <div id="hints">
+                <button onclick="useHint(1)">نمایش یک حرف (30 سکه)</button>
+                <button onclick="useHint(2)">حذف 3 حرف (50 سکه)</button>
+                <button onclick="useHint(3)">نمایش کلمه (90 سکه)</button>
+            </div>
+        </div>
+        <div id="levelIndicator" class="level-indicator"></div>
+        <h1>بازی حدس کلمه</h1>
+        <div id="image">
+            <img id="gameImage" src="" alt="حدس بزن">
+        </div>
+        <div id="word">_ _ _ _ _</div>
+        <div id="buttons"></div>
+        <div id="message"></div>
+        <button id="resetButton" onclick="resetGame()">شروع مجدد</button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="Copilot_The_Drunken_Whaler_Dishonored_OST_.hd_.mp3" type="audio/mpeg">
+        موزیک شما در این مرورگر پخش نمی‌شود.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

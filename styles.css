@@ -1,0 +1,239 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    direction: rtl;
+    padding: 20px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: flex-start; /* تغییر به flex-start برای بالا آوردن المان‌ها */
+    position: relative; /* اضافه کردن این خط برای استفاده از موقعیت‌های مطلق */
+    /* overflow: hidden !important; */
+}
+
+#topRight {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px; /* فاصله بین دکمه‌ها و نمایش سکه‌ها */
+}
+
+h1 {
+    margin: 10px 0; /* فاصله بالای عنوان */
+}
+
+#coinCount {
+    font-size: 1.5em;
+    color: #f1c40f;
+}
+
+#hints {
+    display: flex;
+    flex-direction: column; /* قرار دادن دکمه‌ها به صورت ستونی */
+    align-items: flex-end;
+    gap: 5px; /* فاصله بین دکمه‌ها */
+}
+
+#buttons {
+    margin-top: 20px;
+}
+
+
+#hints button {
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #e67e22;
+    border: none;
+    color: #ecf0f1;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    width: 200px;
+}
+
+#hints button:hover {
+    background-color: #d35400;
+    transform: scale(1.1);
+}
+
+#hints button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+#word {
+    font-size: 2.5em;
+    letter-spacing: 15px;
+    margin-top: 20px;
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    transition: letter-spacing 1s, opacity 1s; /* اضافه کردن انیمیشن برای تغییر فاصله بین حروف و شفافیت */
+}
+
+#message {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+#image {
+    margin-top: 20px;
+}
+
+.letter-btn {
+    font-size: 1.5em;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    border: none;
+    color: #ecf0f1;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.letter-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.letter-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+button#resetButton {
+    margin-top: 30px;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    border: none;
+    color: #ecf0f1;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    display: none; /* ابتدا مخفی باشد */
+}
+
+button#resetButton:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+#gameImage {
+    width: 400px;
+    height: 350px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* اضافه کردن انیمیشن برای چسبیدن حروف به هم */
+@keyframes merge-letters {
+    from {
+        letter-spacing: 15px;
+    }
+    to {
+        letter-spacing: 0;
+    }
+}
+
+.animate-word {
+    animation: merge-letters 1s forwards;
+}
+
+#word.complete {
+    letter-spacing: 0; /* فاصله بین حروف را به صفر می‌رسانیم */
+    opacity: 0; /* کلمه را شفاف می‌کنیم */
+}
+
+#word.show-complete {
+    letter-spacing: 0; /* فاصله بین حروف را به صفر می‌رسانیم */
+    opacity: 1; /* کلمه را به‌طور کامل نمایش می‌دهیم */
+}
+
+.complete {
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+.show-complete {
+    transition: all 1s ease-in-out;
+    opacity: 1;
+}
+
+.level-indicator {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* استایل صفحه مقدمه */
+.intro-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #34495e;
+    color: #ecf0f1;
+    text-align: center;
+}
+
+.start-btn {
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    border: none;
+    color: #ecf0f1;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+}
+
+/* CSS برای انیمیشن fadeIn و fadeOut */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
